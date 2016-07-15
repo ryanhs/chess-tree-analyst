@@ -1,0 +1,12 @@
+{
+    "name": "ryan/chess-puzzle",
+    "authors": [
+        {
+            "name": "ryan hs",
+            "email": "mr.ryansilalahi@gmail.com"
+        }
+    ],
+    "require": {
+        "ryanhs/chess.php": "^1.0"
+    }
+}
