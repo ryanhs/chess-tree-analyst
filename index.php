@@ -232,15 +232,38 @@ convertArray($calculations, $depth, $depth);
 //~ print_r($result);
 
 ?>
-<form action="" method="post">
-	FEN: <input type="text" name="fen" value="<?php echo $fen; ?>" /><br/>
-	Depth: <input type="text" name="depth" value="<?php echo $depth; ?>" /><br/>
-	<input type="submit" />
-</form>
-<hr />
-Best Move: <?php echo explode(',',$bestMove)[0].' ('.explode(',',$bestMove)[2].')'; ?><br/>
-Execution Time: <?php echo number_format($execution_time, 3).'s'; ?><br/><br/>
-<table>
+
+<table class="tform">
+	<tr>
+		<td>
+			<img src="http://www.fen-to-image.com/image/<?php echo explode(' ', $fen)[0]; ?>" />
+		</td>
+		<td>
+			<form action="" method="post">
+				<table class="tform">
+					<tr>
+						<td>FEN</td>
+						<td>&nbsp;:&nbsp;</td>
+						<td><input type="text" name="fen" value="<?php echo $fen; ?>" /></td>
+					</tr>
+					<tr>
+						<td>Depth</td>
+						<td>&nbsp;:&nbsp;</td>
+						<td><input type="text" name="depth" value="<?php echo $depth; ?>" /></td>
+					</tr>
+					<tr>
+						<td colspan="3"><input type="submit" /></td>
+					</tr>
+				</table>
+			</form>
+			<hr />
+			Best Move: <?php echo explode(',',$bestMove)[0].' ('.explode(',',$bestMove)[2].')'; ?><br/>
+			Execution Time: <?php echo number_format($execution_time, 3).'s'; ?><br/><br/>
+		</td>
+	</tr>
+</table>
+<br/>
+<table class="tresult">
 	<thead>
 		<tr>
 		<?php foreach ($header as $th) : ?>
@@ -259,11 +282,25 @@ Execution Time: <?php echo number_format($execution_time, 3).'s'; ?><br/><br/>
 	</tbody>
 </table>
 <style>
-table, th, td
+table.tresult, table.tresult th, table.tresult td
 {
-  border-collapse:collapse;
-  border: 1px solid black;
-  padding: 3px 5px;
-  text-align:center;
+	border-collapse:collapse;
+	border: 1px solid black;
+	padding: 3px 5px;
+	text-align:center;
+}
+table.tform td:nth-child(1)
+{
+	vertical-align:top;
+	padding: 3px 5px;
+}
+table.tform td:nth-child(1) img
+{
+	border:1px solid #aaa;
+}
+table.tform td:nth-child(2)
+{
+	vertical-align:top;
+	padding: 3px 10px;
 }
 </style>
